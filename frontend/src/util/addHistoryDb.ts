@@ -12,7 +12,7 @@ export const addHistoryDb = async (history: HistoryItem) => {
     const token = localStorage.getItem("token");
     if (!token) return;
     const response = await axios.post(
-      "http://127.0.0.1:8000/history",
+      "https://dexio-xtg7.onrender.com/history",
       {
         url: history.url,
         selectors: history.selectors,
@@ -38,7 +38,7 @@ export const getHistoryDb = async () => {
   try {
     const token = localStorage.getItem("token");
     if (!token) return;
-    const response = await axios.get("http://127.0.0.1:8000/history", {
+    const response = await axios.get("https://dexio-xtg7.onrender.com/history", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -58,7 +58,7 @@ export const deleteHistoryDb = async (id: string) => {
       useHistoryStore.getState().removeHistory(id);
       return;
     }
-    const response = await axios.delete(`http://127.0.0.1:8000/history/${id}`, {
+    const response = await axios.delete(`https://dexio-xtg7.onrender.com/history/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -79,7 +79,7 @@ export const clearHistoryDb = async () => {
       return;
     }
 
-    const response = await axios.delete("http://127.0.0.1:8000/history", {
+    const response = await axios.delete("https://dexio-xtg7.onrender.com/history", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

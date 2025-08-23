@@ -85,7 +85,4 @@ export const handledownload=()=>{
         URL.revokeObjectURL(url)
     }
 
-    
-
-      
 }

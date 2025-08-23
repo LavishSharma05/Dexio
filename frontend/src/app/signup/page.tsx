@@ -18,7 +18,7 @@ export default function SignupPage() {
     }
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/signup", {
+      const response = await axios.post("https://dexio-xtg7.onrender.com/signup", {
         email,
         password,
       });
