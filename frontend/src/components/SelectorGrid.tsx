@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useScraperStore from "@/lib/Store/ScraperStore";
 
 const commonSelectors = ["h1", "p", "a", "img", "div", "span"];

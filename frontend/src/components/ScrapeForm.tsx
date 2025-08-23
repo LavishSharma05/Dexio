@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React,{useState} from "react";
+import React from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import useScraperStore from "@/lib/Store/ScraperStore";
 import SelectorGrid from "./SelectorGrid";
