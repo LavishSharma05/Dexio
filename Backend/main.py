@@ -33,7 +33,7 @@ Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://dexio-xtg7.onrender.com"],
+    allow_origins=["https://dexio-xtg7.onrender.com","http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
