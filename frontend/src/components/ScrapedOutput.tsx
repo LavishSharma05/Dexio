@@ -19,7 +19,7 @@ function ScrapedOutput() {
           No output found for the given selectors.
         </div>
       ) : (
-        Object.entries(data).map(([selector, results], idx) => (
+        Object.entries(data).map(([selector, results]) => (
           <div key={selector} className="mb-4">
             <h2 className="mt-4 text-yellow-400 text-sm break-words font-mono bg-slate-800 px-2 py-1 rounded">
               {selector}{" "}

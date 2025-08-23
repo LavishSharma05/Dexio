@@ -8,6 +8,16 @@ import ScrapedOutput from "./ScrapedOutput";
 import { handledownload } from "@/util/handleDownload";
 import useHistoryStore from "@/lib/Store/HistoryStore";
 
+interface ApiError {
+  response?: {
+    data?: {
+      detail?: string;
+      error?: string;
+    };
+  };
+  message: string;
+}
+
 function ScrapeForm() {
   const selectors = useScraperStore((state) => state.selectors);
   const setUrl = useScraperStore((state) => state.setUrl);
@@ -18,8 +28,8 @@ function ScrapeForm() {
   const toggleOutput = useScraperStore((state) => state.toggleOutput);
   const setToggleOutput = useScraperStore((state) => state.setToggleOutput);
   const duration = useScraperStore((state) => state.duration);
-  const setDuration = useScraperStore((state) => state.setDuration); 
-  const addHistory=useHistoryStore((state)=>state.addHistory)
+  const setDuration = useScraperStore((state) => state.setDuration);
+  const addHistory = useHistoryStore((state) => state.addHistory);
 
   const loading = useScraperStore((state) => state.loading);
   const error = useScraperStore((state) => state.error);
@@ -52,13 +62,16 @@ function ScrapeForm() {
       if (res.data?.output) {
         setData(res.data.output);
         setDuration(res.data.duration);
-        addHistory({url,selectors,duration})
+        addHistory({ url, selectors, duration });
       } else {
         throw new Error("Invalid response format");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as ApiError;
       const errorMsg =
-        err.response?.data?.detail || err.response?.data?.error || err.message;
+        error.response?.data?.detail ||
+        error.response?.data?.error ||
+        error.message;
       setError(errorMsg);
     } finally {
       setLoading(false);

@@ -52,7 +52,7 @@ const useHistoryStore = create<HistoryStore>((set) => ({
   },
 
   clearHistory: () => {
-    set((state) => ({
+    set(() => ({
       history: [],
     }));
   },

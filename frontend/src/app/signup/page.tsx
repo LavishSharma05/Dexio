@@ -22,6 +22,7 @@ export default function SignupPage() {
         email,
         password,
       });
+      console.log("Signup succeeded:", response.data);
       router.push("/login");
     } catch (error) {
       console.error("Signup Failed", error);
