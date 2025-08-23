@@ -3,3 +3,8 @@ uvicorn
 requests
 beautifulsoup4
 pydantic
+sqlalchemy
+psycopg2-binary
+python-dotenv
+passlib
+python-jose
