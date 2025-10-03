@@ -51,7 +51,7 @@ function ScrapeForm() {
 
     try {
       const res = await axios.post(
-        "https://dexio-xtg7.onrender.com/scrape",
+        "https://dexio-2.onrender.com/scrape",
         {
           url,
           selectors,

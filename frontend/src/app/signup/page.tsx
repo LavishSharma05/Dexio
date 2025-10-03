@@ -18,7 +18,7 @@ export default function SignupPage() {
     }
 
     try {
-      const response = await axios.post("https://dexio-xtg7.onrender.com/signup", {
+      const response = await axios.post("https://dexio-2.onrender.com/signup", {
         email,
         password,
       });
